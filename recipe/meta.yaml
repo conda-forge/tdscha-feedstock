@@ -20,12 +20,15 @@ requirements:
     - {{ stdlib("c") }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
+    - cmake
+    - pkgconfig
   host:
     - python
     - mpi4py
     - pypar
     - numpy
     - pip
+    - meson-python 
   run:
     - python
     - ase
