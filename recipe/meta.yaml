@@ -1,30 +1,36 @@
 {% set name = "tdscha" %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tdscha-{{ version }}.tar.gz
-  sha256: b28707e30adc88100cf03819daa24872c7cfb41b40c727b43e7473d52a57700c
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tdscha-{{ version }}.tar.gz
+  sha256: ee30735bbf828fb9e7f7bca48b48be81271bc30cb095296de1876e3d22863b9d
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 3
+  number: 0
   skip: true  # [not linux]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
+    - cmake
+    - pkg-config
   host:
     - python
     - mpi4py
     - pypar
     - numpy
     - pip
+    - meson-python
+    - libblas
+    - liblapack
   run:
     - python
     - ase
