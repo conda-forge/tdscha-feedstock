@@ -21,7 +21,7 @@ requirements:
     - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - cmake
-    - pkgconfig
+    - pkg-config
   host:
     - python
     - mpi4py
