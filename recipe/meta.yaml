@@ -28,7 +28,9 @@ requirements:
     - pypar
     - numpy
     - pip
-    - meson-python 
+    - meson-python
+    - libblas
+    - liblapack
   run:
     - python
     - ase
